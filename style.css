@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800;900&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #fafafa;
+}
+
+.gradient {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(156, 110, 102, 0.98)), color-stop(30%, rgba(173, 64, 117, 0.99)), color-stop(60%, rgba(69, 48, 88, 0.99)), to(rgba(108, 53, 79, 0.99)));
+  background: linear-gradient(to bottom, rgba(156, 110, 102, 0.98) 10%, rgba(173, 64, 117, 0.99) 30%, rgba(69, 48, 88, 0.99) 60%, rgba(108, 53, 79, 0.99) 100%);
+  min-height: 100vh;
+  padding: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.countdown {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 20rem);
+  padding: 8rem 4rem 4rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.3))), url("ocean-waves-2236713.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url("ocean-waves-2236713.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  border-radius: 1rem;
+  -webkit-box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.countdown__heading {
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.countdown__subheading {
+  padding-top: 1rem;
+  display: block;
+  text-transform: initial;
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+
+.countdown__items {
+  padding: 5rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.countdown__item {
+  padding: 1rem;
+  position: relative;
+}
+
+.countdown__value {
+  font-size: 10rem;
+}
+
+.countdown__description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #1e202c;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 16px;
+}
+
+.countdown__form {
+  margin-top: 4rem;
+}
+
+.countdown__form-heading {
+  letter-spacing: 2px;
+}
+
+.countdown__form-subheading {
+  padding-top: 0.5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.countdown__input-container {
+  max-width: 40rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.countdown__email-label {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.countdown__email-input {
+  display: block;
+  width: 100%;
+  padding: 1.8rem 2.4rem;
+  border-radius: 3rem;
+  border: none;
+  background: #1e202c;
+  color: #fafafa;
+  font-size: 1rem;
+}
+
+.countdown__email-input::-webkit-input-placeholder {
+  color: rgba(216, 216, 216, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countdown__email-input:-ms-input-placeholder {
+  color: rgba(216, 216, 216, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countdown__email-input::-ms-input-placeholder {
+  color: rgba(216, 216, 216, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countdown__email-input::placeholder {
+  color: rgba(216, 216, 216, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countdown__form-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1.8rem 4rem 1.8rem 2rem;
+  border: none;
+  border-bottom-right-radius: 3rem;
+  border-top-right-radius: 3rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  height: 100%;
+  color: #fafafa;
+  background: rgba(192, 40, 113, 0.99);
+}
+/*# sourceMappingURL=style.css.map */
