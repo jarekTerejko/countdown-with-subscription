@@ -1,21 +1,17 @@
-console.log(123);
-
 const countdownItemsContainer = document.querySelector(".countdown__items");
-console.log(countdownItemsContainer);
 const countdownHeading = document.querySelector(".countdown__heading");
-const formHeading = document.querySelector('.countdown__form-heading')
-const countdownEndBtn = document.querySelector(".countdown__form-btn--end")
+const formHeading = document.querySelector(".countdown__form-heading");
+const countdownEndBtn = document.querySelector(".countdown__form-btn--end");
 const countdownItems = document.querySelectorAll(".countdown__item h3");
-const countdownForm = document.querySelector(".countdown__form")
+const countdownForm = document.querySelector(".countdown__form");
 const leadingZero = (x) => {
   return x < 10 ? "0" + x : x;
 };
 
-
-const tempDate = new Date()
-const tempYear = tempDate.getFullYear()
-const tempMonth = tempDate.getMonth()
-const tempDay = tempDate.getDate()
+const tempDate = new Date();
+const tempYear = tempDate.getFullYear();
+const tempMonth = tempDate.getMonth();
+const tempDay = tempDate.getDate();
 
 // add 10 days to tempDay - app always displays countdown
 const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 12, 0, 0);
@@ -64,11 +60,60 @@ const getRemainingTime = () => {
     countdownHeading.innerHTML = "Countdown completed";
 
     countdownItemsContainer.innerHTML = "";
-    countdownForm.innerHTML = ""
-    countdownEndBtn.classList.add('active')
+    countdownForm.innerHTML = "";
+    countdownEndBtn.classList.add("active");
   }
 };
 
 const coundownInterval = setInterval(getRemainingTime, 1000);
 
 getRemainingTime();
+
+// form validation
+const form = document.querySelector(".countdown__form");
+const email = document.querySelector(".countdown__email-input");
+const msgContainer = document.querySelector(".countdown__info-msg");
+const modalContainer = document.querySelector(".countdown__modal-container");
+const modalCloseBtn = document.querySelector("#modal-close");
+
+const isMailValid = (email) => {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+};
+
+const checkEmail = () => {
+  const emailValue = email.value.trim();
+
+  if (emailValue === "") {
+    setError(email, "Email cannot be blank...");
+  } else if (!isMailValid(emailValue)) {
+    setError(email, "Whoops, make sure it's an email");
+  } else {
+    setSuccess(email, "");
+  }
+};
+
+const setError = (input, msg) => {
+  input.className = "countdown__email-input countdown__email-input--error";
+  msgContainer.textContent = msg;
+};
+
+const setSuccess = (input, msg) => {
+  input.className = "countdown__email-input";
+  msgContainer.textContent = msg;
+  modalContainer.classList.add("active-modal");
+  input.value = ""
+};
+
+form.addEventListener("submit", (e) => {
+  checkEmail();
+  e.preventDefault();
+  if (email.classList.contains("countdown__email-input--error")) {
+    e.preventDefault();
+  }
+});
+
+modalCloseBtn.addEventListener("click", () => {
+  modalContainer.classList.remove("active-modal");
+});

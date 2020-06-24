@@ -169,6 +169,10 @@ body {
   letter-spacing: 1px;
 }
 
+.countdown__email-input--error {
+  color: red;
+}
+
 .countdown__form-btn {
   position: absolute;
   right: 0;
@@ -193,6 +197,14 @@ body {
   background: rgba(179, 37, 106, 0.99);
 }
 
+.countdown__info-msg {
+  position: absolute;
+  top: 100%;
+  left: 18px;
+  display: block;
+  font-size: 1.4rem;
+}
+
 .countdown__form-btn--end {
   color: #fafafa;
   text-decoration: none;
@@ -209,5 +221,52 @@ body {
 
 .countdown__form-btn--end.active {
   display: block;
+}
+
+.countdown__modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.countdown__modal-container.active-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.countdown__modal {
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  background: #fafafa;
+  color: #1e202c;
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: .5rem;
+}
+
+.countdown__modal-text {
+  padding: 3rem 0;
+  font-size: 1.8rem;
 }
 /*# sourceMappingURL=style.css.map */
