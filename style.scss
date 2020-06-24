@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap");
+
+@mixin m-q($arg) {
+  @media screen and (max-width: $arg) {
+    @content;
+  }
+}
+
+$color-primary: #fafafa;
+$color-secondary: #1e202c;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: $color-primary;
+}
+
+.gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(156, 110, 102, 0.98) 10%,
+    rgba(173, 64, 117, 0.99) 30%,
+    rgba(69, 48, 88, 0.99) 60%,
+    rgba(108, 53, 79, 0.99) 100%
+  );
+  min-height: 100vh;
+  padding: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include m-q(950px){
+    padding: 5rem;
+  }
+  @include m-q(500px){
+    padding: 2rem;
+  }
+}
+
+.countdown {
+  width: 100%;
+  min-height: calc(100vh - 20rem);
+  padding: 8rem 4rem 4rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+    url("ocean-waves-2236713.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include m-q(950px){
+    min-height: calc(100vh - 10rem);
+  }
+  @include m-q(500px){
+    padding: 4rem 2rem 4rem 2rem;
+    min-height: calc(100vh - 6rem);
+
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    font-weight: 300;
+    font-size: 3rem;
+    text-align: center;
+
+    @include m-q(400px){
+      font-size: 2rem;
+  
+    }
+  }
+
+  &__subheading {
+    padding-top: 1rem;
+    display: block;
+    text-transform: initial;
+    letter-spacing: 1px;
+    font-size: 2rem;
+  }
+
+  &__items {
+    padding: 5rem 0;
+    width: 1000px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+
+    @include m-q(400px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__item {
+    padding: 1rem;
+    position: relative;
+  }
+
+  &__value {
+    font-size: 14rem;
+    letter-spacing: 2px;
+
+    @include m-q(1000px) {
+      font-size: 6rem;
+    }
+    @include m-q(650px) {
+      font-size: 4rem;
+    }
+    @include m-q(400px) {
+      font-size: 3rem;
+    }
+    
+  }
+
+  &__description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-secondary;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: 700;
+
+    @include m-q(1000px) {
+      font-size: 1.6rem;
+      letter-spacing: 4px;
+      position: initial;
+      color: $color-primary;
+    }
+    @include m-q(650px) {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+    @include m-q(400px) {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__form {
+    margin-top: 4rem;
+  }
+
+  &__form-heading {
+    letter-spacing: 2px;
+  }
+
+  &__form-subheading {
+    padding-top: 0.5rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  &__input-container {
+    max-width: 40rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__email-label {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  &__email-input {
+    display: block;
+    width: 100%;
+    padding: 1.8rem 2.4rem;
+    border-radius: 3rem;
+    border: none;
+    background: $color-secondary;
+    color: $color-primary;
+    font-size: 1.2rem;
+    font-family: "Open Sans Condensed", sans-serif;
+
+    &::placeholder {
+      color: rgba(216, 216, 216, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__email-input--error {
+    color: red;
+  }
+
+  &__form-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1.8rem 4rem 1.8rem 2rem;
+    border: none;
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    height: 100%;
+    color: $color-primary;
+    background: rgba(192, 40, 113, 0.99);
+    font-family: "Open Sans Condensed", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background: darken($color: rgba(192, 40, 113, 0.99), $amount: 3);
+    }
+
+    @include m-q(500px){
+      position: initial;
+      width: 100%;
+      border-bottom-left-radius: 3rem;
+    border-top-left-radius: 3rem;
+    margin-top: 1rem;
+    padding-right: 2rem;
+    }
+  }
+
+  &__info-msg {
+    position: absolute;
+    top: 100%;
+    left: 18px;
+    display: block;
+    // color: rgba(192, 40, 113, 0.99);
+    font-size: 1.4rem;
+  }
+
+  &__form-btn--end {
+    color: $color-primary;
+    text-decoration: none;
+    position: static;
+    align-self: center;
+    padding-left: 4rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    display: none;
+    font-weight: 700;
+
+    @include m-q(500px) {
+      padding: 2rem;
+    }
+  }
+
+  &__form-btn--end.active {
+    display: block;
+  }
+
+  &__modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  &__modal-container.active-modal {
+    display: flex;
+  }
+
+  &__modal {
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+    background: $color-primary;
+    color: $color-secondary;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+  }
+
+  &__modal-text {
+    padding: 3rem 0;
+    font-size: 1.8rem;
+  }
+}
